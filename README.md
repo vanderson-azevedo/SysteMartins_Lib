@@ -5,7 +5,7 @@ Biblioteca de detecção automática de frameworks para FiveM.
 ## Instalação
 
 1. Coloque a pasta na sua pasta de resources
-2. Adicione `ensure SyteMartins_Lib` no seu server.cfg
+2. Adicione `ensure SysteMartins_Lib` no seu server.cfg
 
 ## Configuração
 
@@ -13,22 +13,22 @@ Adicione no seu `server.cfg`:
 
 ```
 # Auto-detecta o framework
-setr framework "auto"
+setr SysteMartins_Framework "auto"
 
 # Ou force um framework específico:
-# setr framework "CreativeV3"
-# setr framework "CreativeV5"
-# setr framework "Qcore"
-# setr framework "Qbox"
+# setr SysteMartins_Framework "CreativeV3"
+# setr SysteMartins_Framework "CreativeV5"
+# setr SysteMartins_Framework "Qcore"
+# setr SysteMartins_Framework "Qbox"
 ```
 
 ## Uso
 
-No seu script, adicione `@SyteMartins_Lib/server.lua` ou `@SyteMartins_Lib/client.lua` no fxmanifest.lua:
+No seu script, adicione `@SysteMartins_Lib/server.lua` ou `@SysteMartins_Lib/client.lua` no fxmanifest.lua:
 
 ```lua
-server_script '@SyteMartins_Lib/server.lua'
-client_script '@SyteMartins_Lib/client.lua'
+server_script '@SysteMartins_Lib/server.lua'
+client_script '@SysteMartins_Lib/client.lua'
 ```
 
 Depois use:
