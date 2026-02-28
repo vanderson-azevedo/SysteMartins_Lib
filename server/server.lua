@@ -55,7 +55,7 @@ function verificarVersao()
             else
                 print("^4[SysteMartins]^7 SUA VERSAO ^3"..scriptName.."^7 ESTA ^2ATUALIZADA^7, OBRIGADO PELA PREFRENCIA.^7")
                 if Framework.Name then
-                    print("^4[SysteMartins]^7 O FRAMEWORK ^3"..Framework.Name.."^7 FOI DETECTADO E ESTA FUNCIONANDO CORRETAMENTE!^7")
+                    print("^4[SysteMartins]^7 FRAMEWORK DETECTADO: ^3"..Framework.Name.."^7")
                 else
                     print("^4[SysteMartins]^1 NENHUM FRAMEWORK COMPATIVEL FOI DETECTADO EM SUA BASE!^7")
                 end
