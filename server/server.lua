@@ -20,14 +20,7 @@ end
 
 Framework.Name = DetectFramework()
 
-print("^6==========================================================^7")
-print("^4[SysteMartins]^7 Site: ^5https://systemartins.com.br^7")
-print("^4[SysteMartins]^7 Discord: ^5https://discord.systemartins.com.br^7")
-print("^6==========================================================^7")
-print('^4[SyteMartins_Lib]^7 Framework detectado: ^3' .. (Framework.Name or 'Nenhum') .. '^7')
-print("^6==========================================================^7")
-
-local remoteVersionUrl = "https://systemartins.com.br/Stm_Versao.json"
+local remoteVersionUrl = "https://raw.githubusercontent.com/vanderson-azevedo/SysteMartins_Lib/refs/heads/main/Stm_Versao.json"
 local originalname = "SysteMartins_Lib"
 local scriptName = GetCurrentResourceName()
 local localVersion = GetResourceMetadata(scriptName, 'version', 0) or "0.0.0"
@@ -61,6 +54,11 @@ function verificarVersao()
                 print("^4[SysteMartins]^1 FACA JA O DOWNLOAD DA NOVA VERSAO PELO ^5[ https://github.com/vanderson-azevedo/SysteMartins_Lib ]^7")
             else
                 print("^4[SysteMartins]^7 SUA VERSAO ^3"..scriptName.."^7 ESTA ^2ATUALIZADA^7, OBRIGADO PELA PREFRENCIA.^7")
+                if Framework.Name then
+                    print("^4[SysteMartins]^7 O FRAMEWORK ^3"..Framework.Name.."^7 FOI DETECTADO E ESTA FUNCIONANDO CORRETAMENTE!^7")
+                else
+                    print("^4[SysteMartins]^1 NENHUM FRAMEWORK COMPATIVEL FOI DETECTADO EM SUA BASE!^7")
+                end
             end
                 print("^6==========================================================^7")
             end
