@@ -30,16 +30,16 @@ Esta lib **não é um script standalone**, mas sim uma dependência obrigatória
 A biblioteca segue separação modular entre client e server:
 
 ```
-SysteMartins_Lib/
+🗂️ SysteMartins_Lib/
 │
-├── client/
-│   └── (módulos client-side)
+├── 📂 client/
+│   └── 📄 client.lua
 │
-├── server/
-│   └── (módulos server-side)
+├── 📂 server/
+│   └── 📄 server.lua
 │
-├── config.lua
-└── fxmanifest.lua
+├── ⚙️ config.lua
+└── 📄 fxmanifest.lua
 ```
 
 ---
