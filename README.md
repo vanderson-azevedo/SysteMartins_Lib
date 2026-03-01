@@ -44,8 +44,12 @@ Ideal para desenvolvedores que criam scripts compatíveis com múltiplos framewo
 ```
 SysteMartins_Lib/
 │
-├── client.lua
-├── server.lua
+├── client/
+│   └── (arquivos client-side)
+│
+├── server/
+│   └── (arquivos server-side)
+│
 ├── config.lua
 └── fxmanifest.lua
 ```
