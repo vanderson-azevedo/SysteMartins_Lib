@@ -1,54 +1,37 @@
-# 📦 SysteMartins_Lib
+# 📚 SysteMartins_Lib
 
-> Biblioteca de detecção automática de frameworks para servidores FiveM.
-
-[![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)]()
-[![FiveM](https://img.shields.io/badge/FiveM-FF6B00?style=for-the-badge)]()
-[![Status](https://img.shields.io/badge/status-active-success?style=for-the-badge)]()
-[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)]()
+> Biblioteca base oficial dos scripts SysteMartins para servidores FiveM.
 
 ---
 
-## 🧠 Sobre o Projeto
+## 🧠 Sobre
 
-O **SysteMartins_Lib** é uma biblioteca desenvolvida em **Lua** para servidores **FiveM**, com foco em **detecção automática de framework**.
+A **SysteMartins_Lib** é a biblioteca central que padroniza e abstrai integrações utilizadas por todos os scripts da SysteMartins.
 
-Ela permite que seus scripts identifiquem dinamicamente qual framework está rodando no servidor, eliminando múltiplas verificações manuais e facilitando a compatibilidade entre diferentes bases.
+Ela é responsável por:
 
-Ideal para desenvolvedores que criam scripts compatíveis com múltiplos frameworks.
+- Detectar automaticamente o framework do servidor
+- Fornecer interface unificada de acesso ao core
+- Centralizar funções compartilhadas
+- Reduzir duplicação de código entre recursos
+- Garantir compatibilidade e escalabilidade
 
----
-
-## 🚀 Funcionalidades
-
-✔ Detecção automática de framework  
-✔ Suporte para múltiplos frameworks  
-✔ Possibilidade de forçar framework manualmente  
-✔ Interface simples para integração  
-✔ Compatível com client e server  
+Esta lib **não é um script standalone**, mas sim uma dependência obrigatória para os recursos SysteMartins.
 
 ---
 
-## 📌 Frameworks Suportados
+## 🏗 Arquitetura
 
-- Creative V3  
-- Creative V5  
-- QBCore  
-- QBox  
-- (Outros podem ser adicionados facilmente)
-
----
-
-## 📂 Estrutura do Projeto
+A biblioteca segue separação modular entre client e server:
 
 ```
 SysteMartins_Lib/
 │
 ├── client/
-│   └── (arquivos client-side)
+│   └── (módulos client-side)
 │
 ├── server/
-│   └── (arquivos server-side)
+│   └── (módulos server-side)
 │
 ├── config.lua
 └── fxmanifest.lua
@@ -56,29 +39,38 @@ SysteMartins_Lib/
 
 ---
 
-## 🔧 Instalação
+## 🔌 Função Principal
 
-1. Clone o repositório:
+### Detecção Automática de Framework
 
-```bash
-git clone https://github.com/vanderson-azevedo/SysteMartins_Lib.git
-```
+A biblioteca identifica automaticamente o framework ativo no servidor, podendo também ser configurada manualmente via `server.cfg`.
 
-2. Coloque a pasta dentro da sua `resources/`
+Frameworks suportados:
 
-3. No seu `server.cfg`, adicione:
+- Creative V3
+- Creative V5
+- QBCore
+- QBox
+- Esx
+- Vrp
+- Vrpex
+
+---
+
+## ⚙️ Instalação
+
+1. Adicione a pasta `SysteMartins_Lib` dentro de `resources/`
+2. No `server.cfg`:
 
 ```cfg
 ensure SysteMartins_Lib
 ```
 
+⚠️ A biblioteca deve iniciar antes de qualquer script SysteMartins.
+
 ---
 
-## ⚙️ Configuração
-
-Por padrão, o sistema detecta automaticamente o framework.
-
-Se desejar forçar manualmente, adicione no `server.cfg`:
+## 🛠 Configuração
 
 ```cfg
 # Auto detect (padrão)
@@ -93,87 +85,45 @@ setr SysteMartins_Framework "CreativeV3"
 
 ---
 
-## 👨‍💻 Como Usar
+## 🧩 Integração nos Scripts SysteMartins
 
-### 1️⃣ No seu `fxmanifest.lua`:
+No `fxmanifest.lua` do recurso dependente:
 
 ```lua
+dependency 'SysteMartins_Lib'
+
 server_script '@SysteMartins_Lib/server.lua'
 client_script '@SysteMartins_Lib/client.lua'
 ```
 
----
-
-### 2️⃣ Dentro do seu script:
+Uso interno:
 
 ```lua
-print(Framework.Name) -- Nome do framework detectado
-
-local Core = Framework.GetCore() -- Retorna o core do framework
+local Core = Framework.GetCore()
+print(Framework.Name)
 ```
 
 ---
 
-## 🧩 Exemplo Prático
+## 🎯 Objetivo do Projeto
 
-```lua
-if Framework.Name == "QBCore" then
-    local Player = Framework.GetCore().Functions.GetPlayer(source)
-end
-```
+Centralizar a base estrutural dos scripts SysteMartins, garantindo:
 
----
-
-## 🛠 Boas Práticas
-
-- Sempre utilize `Framework.GetCore()` ao invés de chamar exports diretamente.
-- Evite múltiplas verificações de framework no mesmo script.
-- Centralize sua lógica de compatibilidade utilizando a biblioteca.
-
----
-
-## 📈 Objetivo do Projeto
-
-Reduzir:
-
-- Código duplicado
-- Verificações repetitivas
-- Scripts específicos para cada framework
-
-E aumentar:
-
-- Compatibilidade
 - Organização
 - Escalabilidade
+- Compatibilidade multi-framework
+- Manutenção simplificada
+- Atualizações centralizadas
 
 ---
 
-## 🤝 Contribuição
+## 🔒 Uso
 
-Contribuições são bem-vindas.
-
-1. Faça um fork
-2. Crie uma branch (`feature/minha-feature`)
-3. Commit suas alterações
-4. Envie um Pull Request
+Esta biblioteca é destinada exclusivamente aos scripts da SysteMartins.
 
 ---
 
-## 📜 Licença
+## 👨‍💻 Desenvolvido por
 
-Este projeto está sob a licença MIT.  
-Sinta-se livre para usar, modificar e distribuir.
-
----
-
-## ⭐ Apoie o Projeto
-
-Se este projeto te ajudou, considere deixar uma ⭐ no repositório.
-
----
-
-## 👨‍💻 Autor
-
-Desenvolvido por **Vanderson Azevedo**
-
----
+**Vanderson Azevedo**  
+SysteMartins Development
