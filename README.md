@@ -2,6 +2,11 @@
 
 > Biblioteca base oficial dos scripts SysteMartins para servidores FiveM.
 
+[![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)]()
+[![FiveM](https://img.shields.io/badge/FiveM-FF6B00?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/status-active-success?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)]()
+
 ---
 
 ## 🧠 Sobre
