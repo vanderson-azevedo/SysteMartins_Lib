@@ -1,27 +1,94 @@
-# SyteMartins_Lib
+# 📚 SysteMartins_Lib
 
-Biblioteca de detecção automática de frameworks para FiveM.
+> Biblioteca base oficial dos scripts SysteMartins para servidores FiveM.
 
-## Instalação
+[![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)]()
+[![FiveM](https://img.shields.io/badge/FiveM-FF6B00?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/status-active-success?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)]()
 
-1. Coloque a pasta na sua pasta de resources
-2. Adicione `ensure SysteMartins_Lib` no seu server.cfg
+---
 
-## Configuração
+## 🧠 Sobre
 
-Adicione no seu `server.cfg`:
+A **SysteMartins_Lib** é a biblioteca central que padroniza e abstrai integrações utilizadas por todos os scripts da SysteMartins.
+
+Ela é responsável por:
+
+- Detectar automaticamente o framework do servidor
+- Fornecer interface unificada de acesso ao core
+- Centralizar funções compartilhadas
+- Reduzir duplicação de código entre recursos
+- Garantir compatibilidade e escalabilidade
+
+Esta lib **não é um script standalone**, mas sim uma dependência obrigatória para os recursos SysteMartins.
+
+---
+
+## 🏗 Arquitetura
+
+A biblioteca segue separação modular entre client e server:
 
 ```
-# Auto-detecta o framework
+🗂️ SysteMartins_Lib/
+│
+├── 📂 client/
+│   └── 📄 client.lua
+│
+├── 📂 server/
+│   └── 📄 server.lua
+│
+├── ⚙️ config.lua
+└── 📄 fxmanifest.lua
+```
+
+---
+
+## 🔌 Função Principal
+
+### Detecção Automática de Framework
+
+A biblioteca identifica automaticamente o framework ativo no servidor, podendo também ser configurada manualmente via `server.cfg`.
+
+Frameworks suportados:
+
+- Creative V3
+- Creative V5
+- QBCore
+- QBox
+- Esx
+- Vrp
+- Vrpex
+
+---
+
+## ⚙️ Instalação
+
+1. Adicione a pasta `SysteMartins_Lib` dentro de `resources/`
+2. No `server.cfg`:
+
+```cfg
+ensure SysteMartins_Lib
+```
+
+⚠️ A biblioteca deve iniciar antes de qualquer script SysteMartins.
+
+---
+
+## 🛠 Configuração
+
+```cfg
+# Auto detect (padrão)
 setr SysteMartins_Framework "auto"
 
-# Ou force um framework específico:
-# setr SysteMartins_Framework "CreativeV3"
+# Forçar manualmente
+setr SysteMartins_Framework "CreativeV3"
 # setr SysteMartins_Framework "CreativeV5"
-# setr SysteMartins_Framework "Qcore"
-# setr SysteMartins_Framework "Qbox"
+# setr SysteMartins_Framework "QBCore"
+# setr SysteMartins_Framework "QBox"
 ```
 
+<<<<<<< HEAD
 Realize as alterações no seu `@SysteMartins_Lib/fxmanifest.cfg`:
 
 ## Uso
@@ -29,13 +96,49 @@ No seu script, adicione `@SysteMartins_Lib/server.lua` ou `@SysteMartins_Lib/cli
 
 ```lua
 dependency 'SysteMartins_Lib'
+=======
+---
+
+## 🧩 Integração nos Scripts SysteMartins
+
+No `fxmanifest.lua` do recurso dependente:
+
+```lua
+dependency 'SysteMartins_Lib'
+
+>>>>>>> 3dba352a4b3ca671f556ac931597aea4c16be24a
 server_script '@SysteMartins_Lib/server.lua'
 client_script '@SysteMartins_Lib/client.lua'
 ```
 
-Depois use:
+Uso interno:
 
 ```lua
-print(Framework.Name) -- Retorna o nome do framework
-local Core = Framework.GetCore() -- Retorna o objeto do framework
+local Core = Framework.GetCore()
+print(Framework.Name)
 ```
+
+---
+
+## 🎯 Objetivo do Projeto
+
+Centralizar a base estrutural dos scripts SysteMartins, garantindo:
+
+- Organização
+- Escalabilidade
+- Compatibilidade multi-framework
+- Manutenção simplificada
+- Atualizações centralizadas
+
+---
+
+## 🔒 Uso
+
+Esta biblioteca é destinada exclusivamente aos scripts da SysteMartins.
+
+---
+
+## 👨‍💻 Desenvolvido por
+
+**Vanderson Azevedo**  
+SysteMartins Development
