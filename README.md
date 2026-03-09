@@ -88,16 +88,13 @@ setr SysteMartins_Framework "CreativeV3"
 # setr SysteMartins_Framework "QBox"
 ```
 
-<<<<<<< HEAD
-Realize as alterações no seu `@SysteMartins_Lib/fxmanifest.cfg`:
+## Realize as alterações no seu `@SysteMartins_Lib/fxmanifest.cfg`:
+
+---
 
 ## Uso
 No seu script, adicione `@SysteMartins_Lib/server.lua` ou `@SysteMartins_Lib/client.lua` no fxmanifest.lua:
 
-```lua
-dependency 'SysteMartins_Lib'
-=======
----
 
 ## 🧩 Integração nos Scripts SysteMartins
 
@@ -105,8 +102,6 @@ No `fxmanifest.lua` do recurso dependente:
 
 ```lua
 dependency 'SysteMartins_Lib'
-
->>>>>>> 3dba352a4b3ca671f556ac931597aea4c16be24a
 server_script '@SysteMartins_Lib/server.lua'
 client_script '@SysteMartins_Lib/client.lua'
 ```
