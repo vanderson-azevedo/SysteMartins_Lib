@@ -22,11 +22,13 @@ setr SysteMartins_Framework "auto"
 # setr SysteMartins_Framework "Qbox"
 ```
 
-## Uso
+Realize as alterações no seu `@SysteMartins_Lib/fxmanifest.cfg`:
 
+## Uso
 No seu script, adicione `@SysteMartins_Lib/server.lua` ou `@SysteMartins_Lib/client.lua` no fxmanifest.lua:
 
 ```lua
+dependency 'SysteMartins_Lib'
 server_script '@SysteMartins_Lib/server.lua'
 client_script '@SysteMartins_Lib/client.lua'
 ```
