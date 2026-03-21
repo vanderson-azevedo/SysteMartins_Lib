@@ -66,6 +66,46 @@ function verificarVersao()
     end)
 end
 
+CreateThread(function()
+    local artifactVersion = GetConvar('version', '0.0.0')
+    local versionNumber = artifactVersion:match("v1%.0%.0%.(%d+)")
+
+    if not versionNumber then return end
+
+    local DBJSON = ('https://artifacts.jgscripts.com/check?artifact=%s'):format(versionNumber)
+
+    local function printMessage(color, messages)
+        local border =  "=========================================================="
+        local title =   "=================== CHECANDO ARTEFATOS ==================="
+
+        print(('^%s %s'):format(color, border))
+        print(('^%s %s'):format(color, title))
+        print(('^%s %s'):format(color, border))
+
+        for _, msg in pairs(messages) do
+            print(('^%s %s'):format(color, msg))
+        end
+
+        print(('^%s %s'):format(color, border))
+        print(('^%s %s'):format(color, border))
+        print(('^%s %s'):format(color, border))
+    end
+
+    PerformHttpRequest(DBJSON, function(status, response)
+        if status ~= 200 then
+            return print(('^1HTTP ERROR: %s'):format(status))
+        end
+
+        response = json.decode(response)
+
+        if response?.status == 'OK' then
+            printMessage('2', { ('NENHUM PROBLEMA RELATADO COM OS ARTEFATOS DO SEU SERVIDOR!!! \n VERSAO: %s'):format(versionNumber) })
+        elseif response?.status == 'BROKEN' then
+            printMessage('1', { ('FORAM RELATADOS PROBLEMAS NOS ARTEFATOS DO SEU SERVIDOR!!! \n ^3VERSAO: %s | MOTIVO: %s'):format(versionNumber, response?.reason) })
+        end
+    end, "GET")
+end)
+
 -- Função para comparar versões (retorna true se versão remota é maior)
 function compararVersao(localVer, remoteVer)
     local lv, rv = {}, {}
