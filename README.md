@@ -8,97 +8,87 @@
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)]()
 
 ---
+---
 
-## 🧠 Sobre
+## 🤝 Responsabilidades
 
-A **SysteMartins_Lib** é a biblioteca central que padroniza e abstrai integrações utilizadas por todos os scripts da SysteMartins.
-
-Ela é responsável por:
-
-- Detectar automaticamente o framework do servidor
-- Fornecer interface unificada de acesso ao core
-- Centralizar funções compartilhadas
-- Reduzir duplicação de código entre recursos
-- Garantir compatibilidade e escalabilidade
-
-Esta lib **não é um script standalone**, mas sim uma dependência obrigatória para os recursos SysteMartins.
+- Detectar automaticamente o framework do servidor  
+- Fornecer interface unificada de acesso ao core  
+- Centralizar funções compartilhadas  
+- Reduzir duplicação de código entre recursos  
+- Garantir compatibilidade e escalabilidade  
+- Ser uma dependência obrigatória para os recursos SysteMartins  
 
 ---
 
-## 🏗 Arquitetura
+## 🗂️ Arquitetura
 
-A biblioteca segue separação modular entre client e server:
-
-```
-🗂️ SysteMartins_Lib/
+```bash
+SysteMartins_Lib/
 │
-├── 📂 client/
-│   └── 📄 client.lua
+├── client/
+│   └── client.lua
 │
-├── 📂 server/
-│   └── 📄 server.lua
+├── server/
+│   └── server.lua
 │
-├── ⚙️ config.lua
-└── 📄 fxmanifest.lua
+├── config.lua
+└── fxmanifest.lua
 ```
 
 ---
 
-## 🔌 Função Principal
+## 🧩 Frameworks suportados
 
-### Detecção Automática de Framework
-
-A biblioteca identifica automaticamente o framework ativo no servidor, podendo também ser configurada manualmente via `server.cfg`.
-
-Frameworks suportados:
-
-- Creative V3
-- Creative V5
+- Creative v3 até v5
+- vRP
+- vRPEX
 - QBCore
-- QBox
-- Esx
-- Vrp
-- Vrpex
+- QBX
+- ESX
 
 ---
 
 ## ⚙️ Instalação
 
-1. Adicione a pasta `SysteMartins_Lib` dentro de `resources/`
-2. No `server.cfg`:
+1. Baixe o resource no GitHub oficial.
+2. Adicione a pasta `SysteMartins_Lib` dentro da pasta `resources` do seu servidor.
+3. Adicione o resource no arquivo de configuração do servidor:
 
 ```cfg
 ensure SysteMartins_Lib
 ```
 
-⚠️ A biblioteca deve iniciar antes de qualquer script SysteMartins.
-
----
-
-## 🛠 Configuração
+4. Ajuste a configuração do framework caso ele não seja detectado automaticamente:
 
 ```cfg
 # Auto detect (padrão)
 setr SysteMartins_Framework "auto"
 
-# Forçar manualmente
-setr SysteMartins_Framework "CreativeV3"
+# Ou defina manualmente:
+# setr SysteMartins_Framework "CreativeV3"
 # setr SysteMartins_Framework "CreativeV5"
-# setr SysteMartins_Framework "QBCore"
-# setr SysteMartins_Framework "QBox"
+# setr SysteMartins_Framework "QBCoreQBox"
 ```
-
-## Realize as alterações no seu `@SysteMartins_Lib/fxmanifest.cfg`:
+5. ## Realize as alterações no seu `fxmanifest.cfg` para a versão de sua framework:
 
 ---
 
-## Uso
-No seu script, adicione `@SysteMartins_Lib/server.lua` ou `@SysteMartins_Lib/client.lua` no fxmanifest.lua:
+## ⚠️ Ordem de inicialização
 
+A biblioteca **deve respeitar a hierarquia de inicialização** e ser iniciada antes de qualquer outro script da SysteMartins.
+
+```cfg
+ensure SysteMartins_Lib
+ensure SysteMartins_X
+ensure SysteMartins_Y
+ensure SysteMartins_Z
+```
+
+---
 
 ## 🧩 Integração nos Scripts SysteMartins
-
-No `fxmanifest.lua` do recurso dependente:
+No seu script, adicione `@SysteMartins_Lib/server.lua` ou `@SysteMartins_Lib/client.lua` no fxmanifest.lua:
 
 ```lua
 dependency 'SysteMartins_Lib'
@@ -106,30 +96,25 @@ server_script '@SysteMartins_Lib/server.lua'
 client_script '@SysteMartins_Lib/client.lua'
 ```
 
-Uso interno:
+## 📜 Licença e Uso
 
-```lua
-local Core = Framework.GetCore()
-print(Framework.Name)
-```
+Este projeto utiliza a SysteMartins License (MIT Modified - Non-Commercial Clause).
+A **SysteMartins_Lib** é um projeto aberto para a comunidade.
 
----
+Você está livre para:
 
-## 🎯 Objetivo do Projeto
+* ✔️ Utilizar em seus projetos
+* ✔️ Modificar e adaptar conforme sua necessidade
+* ✔️ Integrar em servidores FiveM / RedM
 
-Centralizar a base estrutural dos scripts SysteMartins, garantindo:
+Restrições:
 
-- Organização
-- Escalabilidade
-- Compatibilidade multi-framework
-- Manutenção simplificada
-- Atualizações centralizadas
+* ❌ Não é permitido vender, revender ou monetizar esta biblioteca
+* ❌ Não é permitido redistribuir versões modificadas com fins comerciais
 
----
+Esta biblioteca foi criada para fortalecer o ecossistema e incentivar o compartilhamento entre desenvolvedores.
 
-## 🔒 Uso
-
-Esta biblioteca é destinada exclusivamente aos scripts da SysteMartins.
+💡 Resumindo: use à vontade, modifique como quiser, mas não venda.
 
 ---
 
