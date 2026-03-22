@@ -67,7 +67,8 @@ setr SysteMartins_Framework "auto"
 # Ou defina manualmente:
 # setr SysteMartins_Framework "CreativeV3"
 # setr SysteMartins_Framework "CreativeV5"
-# setr SysteMartins_Framework "QBCoreQBox"
+# setr SysteMartins_Framework "Qbcore"
+# setr SysteMartins_Framework "Qbox"
 ```
 5. ## Realize as alterações no seu `fxmanifest.cfg` para a versão de sua framework:
 

@@ -10,7 +10,7 @@ local function DetectFramework()
     elseif GetResourceState('vrp') == 'started' then
         return 'CreativeV5'
     elseif GetResourceState('qb-core') == 'started' then
-        return 'Qcore'
+        return 'Qbcore'
     elseif GetResourceState('qbx-core') == 'started' then
         return 'Qbox'
     end
@@ -23,7 +23,7 @@ Framework.Name = DetectFramework()
 function Framework.GetCore()
     if Framework.Name == 'CreativeV3' or Framework.Name == 'CreativeV5' then
         return Tunnel, Proxy
-    elseif Framework.Name == 'Qcore' then
+    elseif Framework.Name == 'Qbcore' then
         return exports['qb-core']:GetCoreObject()
     elseif Framework.Name == 'Qbox' then
         return exports['qbx-core']:GetCoreObject()

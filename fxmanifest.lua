@@ -6,7 +6,7 @@ author "SysteMartins Scripts / Ortega"
 description "Biblioteca da SysteMartins"
 discord "https://discord.systemartins.com.br"
 website "https://systemartins.com.br"
-version '1.1.0'
+version '1.1.1'
 
 --[[
     ================================================================================
